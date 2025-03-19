@@ -396,13 +396,18 @@ analytics}\label{multiplexed-shrna-screening-ap009-analytics}
 
 Biao Li
 
-03/17/2025
-
 This notebook includes analysis scripts of processing count table of
 multiplexed shRNA screening experiments on AP009 cell line received from
 Cellecta, and evaluating * whether multi-shRNA system works as expected
 * prognostic effect of genotype X, and * predictive effect of genetype X
 on response to treatment
+
+Note - bash commands to convert notebook to pdf:
+
+\(>\)
+\texttt{jupyter\ nbconvert\ -\/-to\ latex\ multi\_shrna\_screening\_ap009.ipynb}
+
+\(>\) \texttt{xelatex\ multi\_shrna\_screening\_ap009.tex}
 
     \subsection{(ToDos)}\label{todos}
 
@@ -1555,7 +1560,7 @@ A vs.~B \textless-\textgreater{} Dox (target gene vs NT) vs.~NoDox
 vs.~\texttt{T7\_NoDox\_NoTx}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{95}{\boxspacing}
+\prompt{In}{incolor}{39}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{} Define conditions for A and B}
 \PY{c+c1}{\PYZsh{} condition\PYZus{}A = \PYZdq{}T7\PYZus{}Dox\PYZus{}Vehicle\PYZdq{}}
@@ -1575,7 +1580,7 @@ vs.~\texttt{T7\_NoDox\_NoTx}
 \end{tcolorbox}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{96}{\boxspacing}
+\prompt{In}{incolor}{40}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{display}\PY{p}{(}\PY{n}{df\PYZus{}prognostic}\PY{p}{)}
 \end{Verbatim}
@@ -1601,7 +1606,7 @@ vs.~\texttt{T7\_NoDox\_NoTx}
 
     
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{97}{\boxspacing}
+\prompt{In}{incolor}{41}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{} Define control gene lists}
 \PY{n}{loss\PYZus{}of\PYZus{}representation\PYZus{}target\PYZus{}genes} \PY{o}{=} \PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Rpa1}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Rpa3}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Rps6}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Pcna}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Psmc5}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Rbx1}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Ran}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Snrpd1}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Rpl7}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Kif11}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}
@@ -1624,7 +1629,7 @@ vs.~\texttt{T7\_NoDox\_NoTx}
 \end{tcolorbox}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{98}{\boxspacing}
+\prompt{In}{incolor}{42}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{40}\PY{p}{,} \PY{l+m+mi}{8}\PY{p}{)}\PY{p}{)}
 
@@ -1671,18 +1676,53 @@ vs.~\texttt{T7\_NoDox\_NoTx}
     { \hspace*{\fill} \\}
     
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{99}{\boxspacing}
+\prompt{In}{incolor}{43}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
-\PY{k+kn}{import} \PY{n+nn}{seaborn} \PY{k}{as} \PY{n+nn}{sns}
-\PY{k+kn}{import} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{pyplot} \PY{k}{as} \PY{n+nn}{plt}
-\PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k}{as} \PY{n+nn}{pd}
+\PY{n}{display}\PY{p}{(}\PY{n}{df\PYZus{}prognostic}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
 
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+     shRNA\_ID Target\_Gene     RTN\_A     RTN\_B  Prognostic\_Effect  \textbackslash{}
+1147    NT\_01          NT  0.005664  0.005860           0.966613   
+1148    NT\_02          NT  0.008759  0.008220           1.065510   
+1149    NT\_03          NT  0.003065  0.002749           1.114952   
+1150    NT\_04          NT  0.004595  0.004578           1.003659   
+1151    NT\_05          NT  0.005373  0.005452           0.985509   
+{\ldots}       {\ldots}         {\ldots}       {\ldots}       {\ldots}                {\ldots}   
+2165  Zeb1\_06        Zeb1  0.002152  0.002631           0.817944   
+2166  Zeb1\_07        Zeb1  0.003378  0.003274           1.031843   
+2167  Zeb1\_08        Zeb1  0.003017  0.002943           1.025161   
+2168  Zeb1\_09        Zeb1  0.006237  0.006366           0.979753   
+2169  Zeb1\_10        Zeb1  0.002172  0.002100           1.034449   
+
+        Gene\_Category  Sort\_Order  
+1147  Neutral Control           1  
+1148  Neutral Control           1  
+1149  Neutral Control           1  
+1150  Neutral Control           1  
+1151  Neutral Control           1  
+{\ldots}               {\ldots}         {\ldots}  
+2165            Other           4  
+2166            Other           4  
+2167            Other           4  
+2168            Other           4  
+2169            Other           4  
+
+[2170 rows x 7 columns]
+    \end{Verbatim}
+
+    
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{44}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{} Compute median Prognostic\PYZus{}Effect for each Target\PYZus{}Gene within each Gene\PYZus{}Category}
 \PY{n}{gene\PYZus{}order} \PY{o}{=} \PY{p}{(}
-    \PY{n}{df\PYZus{}prognostic}\PY{o}{.}\PY{n}{groupby}\PY{p}{(}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Gene\PYZus{}Category}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Target\PYZus{}Gene}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{)}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Prognostic\PYZus{}Effect}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}
+    \PY{n}{df\PYZus{}prognostic}\PY{o}{.}\PY{n}{groupby}\PY{p}{(}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Sort\PYZus{}Order}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Target\PYZus{}Gene}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{)}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Prognostic\PYZus{}Effect}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}
     \PY{o}{.}\PY{n}{median}\PY{p}{(}\PY{p}{)}
     \PY{o}{.}\PY{n}{reset\PYZus{}index}\PY{p}{(}\PY{p}{)}
-    \PY{o}{.}\PY{n}{sort\PYZus{}values}\PY{p}{(}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Gene\PYZus{}Category}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Prognostic\PYZus{}Effect}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{,} \PY{n}{ascending}\PY{o}{=}\PY{p}{[}\PY{k+kc}{True}\PY{p}{,} \PY{k+kc}{True}\PY{p}{]}\PY{p}{)}
+    \PY{o}{.}\PY{n}{sort\PYZus{}values}\PY{p}{(}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Sort\PYZus{}Order}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Prognostic\PYZus{}Effect}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{,} \PY{n}{ascending}\PY{o}{=}\PY{p}{[}\PY{k+kc}{True}\PY{p}{,} \PY{k+kc}{True}\PY{p}{]}\PY{p}{)}
 \PY{p}{)}
 
 \PY{c+c1}{\PYZsh{} Update Target\PYZus{}Gene with the new categorical order}
@@ -1717,9 +1757,9 @@ vs.~\texttt{T7\_NoDox\_NoTx}
 \PY{n}{plt}\PY{o}{.}\PY{n}{axhline}\PY{p}{(}\PY{n}{y}\PY{o}{=}\PY{l+m+mf}{1.0}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{black}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{linestyle}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{dotted}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
 
 \PY{c+c1}{\PYZsh{} Compute correct category boundaries}
-\PY{n}{neutral\PYZus{}control\PYZus{}count} \PY{o}{=} \PY{n}{gene\PYZus{}order}\PY{p}{[}\PY{n}{gene\PYZus{}order}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Gene\PYZus{}Category}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]} \PY{o}{==} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Neutral Control}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Target\PYZus{}Gene}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{o}{.}\PY{n}{nunique}\PY{p}{(}\PY{p}{)}
-\PY{n}{loss\PYZus{}of\PYZus{}representation\PYZus{}count} \PY{o}{=} \PY{n}{gene\PYZus{}order}\PY{p}{[}\PY{n}{gene\PYZus{}order}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Gene\PYZus{}Category}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]} \PY{o}{==} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Loss of Representation}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Target\PYZus{}Gene}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{o}{.}\PY{n}{nunique}\PY{p}{(}\PY{p}{)}
-\PY{n}{gain\PYZus{}of\PYZus{}representation\PYZus{}count} \PY{o}{=} \PY{n}{gene\PYZus{}order}\PY{p}{[}\PY{n}{gene\PYZus{}order}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Gene\PYZus{}Category}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]} \PY{o}{==} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Gain of Representation}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Target\PYZus{}Gene}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{o}{.}\PY{n}{nunique}\PY{p}{(}\PY{p}{)}
+\PY{n}{neutral\PYZus{}control\PYZus{}count} \PY{o}{=} \PY{n}{df\PYZus{}prognostic}\PY{p}{[}\PY{n}{df\PYZus{}prognostic}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Gene\PYZus{}Category}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]} \PY{o}{==} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Neutral Control}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Target\PYZus{}Gene}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{o}{.}\PY{n}{nunique}\PY{p}{(}\PY{p}{)}
+\PY{n}{loss\PYZus{}of\PYZus{}representation\PYZus{}count} \PY{o}{=} \PY{n}{df\PYZus{}prognostic}\PY{p}{[}\PY{n}{df\PYZus{}prognostic}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Gene\PYZus{}Category}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]} \PY{o}{==} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Loss of Representation}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Target\PYZus{}Gene}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{o}{.}\PY{n}{nunique}\PY{p}{(}\PY{p}{)}
+\PY{n}{gain\PYZus{}of\PYZus{}representation\PYZus{}count} \PY{o}{=} \PY{n}{df\PYZus{}prognostic}\PY{p}{[}\PY{n}{df\PYZus{}prognostic}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Gene\PYZus{}Category}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]} \PY{o}{==} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Gain of Representation}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Target\PYZus{}Gene}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{o}{.}\PY{n}{nunique}\PY{p}{(}\PY{p}{)}
 
 \PY{c+c1}{\PYZsh{} Add vertical dotted lines to separate categories}
 \PY{n}{plt}\PY{o}{.}\PY{n}{axvline}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{n}{neutral\PYZus{}control\PYZus{}count} \PY{o}{\PYZhy{}} \PY{l+m+mf}{0.5}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{gray}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{linestyle}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{dotted}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}  
@@ -1729,7 +1769,7 @@ vs.~\texttt{T7\_NoDox\_NoTx}
 \PY{c+c1}{\PYZsh{} Customize the plot}
 \PY{n}{plt}\PY{o}{.}\PY{n}{xticks}\PY{p}{(}\PY{n}{rotation}\PY{o}{=}\PY{l+m+mi}{90}\PY{p}{,} \PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{15}\PY{p}{)}
 \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Target Gene}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
-\PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Prognostic Effect (RTN\PYZus{}A / RTN\PYZus{}B)}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Prognostic Effect}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
 \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Prognostic Effects Ordered by Neutral Control, Gain/Loss of Representations, and Others}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
 \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{n}{title}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Gene Category}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{loc}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{upper right}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{15}\PY{p}{,} \PY{n}{frameon}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
 
@@ -1739,7 +1779,7 @@ vs.~\texttt{T7\_NoDox\_NoTx}
 \end{tcolorbox}
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{multi_shrna_screening_ap009_files/multi_shrna_screening_ap009_57_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{multi_shrna_screening_ap009_files/multi_shrna_screening_ap009_58_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -1751,7 +1791,7 @@ A vs.~B \textless-\textgreater{} Treated (target gene vs NT) vs.~Vehicle
 three time point - T7, T10, and T13
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{43}{\boxspacing}
+\prompt{In}{incolor}{45}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nb}{print}\PY{p}{(}\PY{n}{df\PYZus{}rtn}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Sample\PYZus{}Description}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}\PY{p}{)}
 \end{Verbatim}
@@ -1773,7 +1813,7 @@ Name: Sample\_Description, dtype: int64
     \end{Verbatim}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{44}{\boxspacing}
+\prompt{In}{incolor}{46}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{} Define all possible treatment vs vehicle comparisons for predictive effect calculation}
 \PY{n}{timepoints} \PY{o}{=} \PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{T7}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{T10}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{T13}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}
@@ -1812,7 +1852,7 @@ Name: Sample\_Description, dtype: int64
 \end{tcolorbox}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{45}{\boxspacing}
+\prompt{In}{incolor}{47}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{display}\PY{p}{(}\PY{n}{df\PYZus{}predictive\PYZus{}effect}\PY{p}{)}
 \end{Verbatim}
@@ -1851,7 +1891,7 @@ Name: Sample\_Description, dtype: int64
 
     
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{46}{\boxspacing}
+\prompt{In}{incolor}{48}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{} Assign categories for sorting}
 \PY{n}{df\PYZus{}predictive\PYZus{}effect}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Gene\PYZus{}Category}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Other}\PY{l+s+s2}{\PYZdq{}}  \PY{c+c1}{\PYZsh{} Default category}
@@ -1885,7 +1925,7 @@ Name: Sample\_Description, dtype: int64
     \end{Verbatim}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{47}{\boxspacing}
+\prompt{In}{incolor}{49}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{} \PYZsh{} Compute correct category boundaries}
 \PY{c+c1}{\PYZsh{} neutral\PYZus{}control\PYZus{}count = df\PYZus{}prognostic[df\PYZus{}prognostic[\PYZdq{}Gene\PYZus{}Category\PYZdq{}] == \PYZdq{}Neutral Control\PYZdq{}][\PYZdq{}Target\PYZus{}Gene\PYZdq{}].nunique()}
@@ -1918,7 +1958,7 @@ Name: Sample\_Description, dtype: int64
     \PY{n}{ax}\PY{o}{.}\PY{n}{axhline}\PY{p}{(}\PY{n}{y}\PY{o}{=}\PY{l+m+mf}{1.0}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{black}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{linestyle}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{dotted}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}  \PY{c+c1}{\PYZsh{} Add reference line at 1.0}
     \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}title}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Timepoint: }\PY{l+s+si}{\PYZob{}}\PY{n}{timepoint}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{, Dosage: }\PY{l+s+si}{\PYZob{}}\PY{n}{dosage}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{12}\PY{p}{)}
     \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}xlabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
-    \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}ylabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Predictive Effect (RTN\PYZus{}A / RTN\PYZus{}B)}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+    \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}ylabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Predictive Effect}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
     \PY{n}{ax}\PY{o}{.}\PY{n}{tick\PYZus{}params}\PY{p}{(}\PY{n}{axis}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{x}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{rotation}\PY{o}{=}\PY{l+m+mi}{90}\PY{p}{,} \PY{n}{labelsize}\PY{o}{=}\PY{l+m+mi}{8}\PY{p}{)}
 
     \PY{c+c1}{\PYZsh{} Adjust y\PYZhy{}axis range dynamically based on the subset}
@@ -1931,12 +1971,12 @@ Name: Sample\_Description, dtype: int64
 \end{tcolorbox}
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{multi_shrna_screening_ap009_files/multi_shrna_screening_ap009_63_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{multi_shrna_screening_ap009_files/multi_shrna_screening_ap009_64_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{48}{\boxspacing}
+\prompt{In}{incolor}{50}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{df\PYZus{}predictive\PYZus{}effect}\PY{o}{.}\PY{n}{to\PYZus{}csv}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZti{}/Documents/Projects/Multi\PYZus{}shRNA\PYZus{}screening\PYZus{}AP009/data/predictive\PYZus{}effect.csv}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{index} \PY{o}{=} \PY{k+kc}{False}\PY{p}{)}
 \end{Verbatim}
