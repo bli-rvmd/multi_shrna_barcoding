@@ -2,6 +2,23 @@
 # utility functions of multi shrna screening project
 ####
 
+import pandas as pd
+import numpy as np
+from prettytable import PrettyTable
+from IPython.display import display
+import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
+import os
+from scipy.stats import pearsonr
+
+from matplotlib_venn import venn3
+import matplotlib.patches as patches
+from adjustText import adjust_text
+
+def test_fn():
+    return np.log2(8)
+
 ## utility function of printing table
 def ViewTable(df, top_n_rows = None):
     table = PrettyTable(df.columns.tolist())
@@ -41,7 +58,7 @@ def plot_bootstrapped_scatter(df_summary, x_timepoint, x_dosage, y_timepoint, y_
     metric : str
         The metric to plot ("RTN_A", "RTN_B", or "Predictive_Effect").
     """
-
+    
     # Filter the dataframe based on user-specified timepoints and dosages
     df_x = df_summary[(df_summary["Timepoint"] == x_timepoint) & (df_summary["Dosage"] == x_dosage)]
     df_y = df_summary[(df_summary["Timepoint"] == y_timepoint) & (df_summary["Dosage"] == y_dosage)]
